@@ -15,6 +15,8 @@ export const initProjectSchema = z.object({
   initialPrompt: z.string().trim().min(1)
 })
 
+export const getProjectSchema = z.uuid();
+
 export type SignupApiType = z.infer<typeof SignupApiSchema>
 export type SigninApiType = z.infer<typeof SigninApiSchema>
 

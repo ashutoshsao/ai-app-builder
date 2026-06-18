@@ -1,4 +1,7 @@
 -- CreateEnum
+CREATE TYPE "ProjectStatus" AS ENUM ('CREATING', 'RUNNING', 'SLEEPING', 'FAILED');
+
+-- CreateEnum
 CREATE TYPE "ConversationType" AS ENUM ('TOOL_CALL', 'TEXT_MESSAGE');
 
 -- CreateEnum
@@ -25,6 +28,7 @@ CREATE TABLE "Project" (
     "title" TEXT NOT NULL,
     "initialPrompt" TEXT NOT NULL,
     "userId" TEXT NOT NULL,
+    "status" "ProjectStatus" NOT NULL DEFAULT 'CREATING',
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
 

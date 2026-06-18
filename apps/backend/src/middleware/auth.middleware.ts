@@ -15,10 +15,16 @@ export const verifyAuth = (req: Request, res: Response, next: NextFunction) => {
     const token = authHeader.slice(7);
 
     const decoded = jwt.verify(token, Env.JWT_SECRET) as JwtPayload;
+    if (!decoded.userId || typeof decoded.userId !== "string") {
+      res.status(401).json({
+        message: "Invalid credentials"
+      })
+      return
+    }
     req.userId = decoded.userId;
     next();
   } catch (error) {
-    res.status(400).json({
+    res.status(401).json({
       message: "Invalid token"
     })
   }
