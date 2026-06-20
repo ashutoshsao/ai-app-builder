@@ -53,7 +53,8 @@ export async function getProjects(req: Request, res: Response) {
       title: true,
       id: true,
       status: true,
-      updatedAt: true
+      updatedAt: true,
+      createdAt: true
     },
     orderBy: {
       updatedAt: "desc"
@@ -93,11 +94,13 @@ export async function getProject(req: Request, res: Response) {
   })
 
   if (!project) {
-    res.status(400).json({
-      message: `no project with ${projectId} and ${userId} in db`
+    res.status(404).json({
+      message: `no project by you in db`
     })
     return
   }
 
-
+  res.status(200).json({
+    project
+  })
 }

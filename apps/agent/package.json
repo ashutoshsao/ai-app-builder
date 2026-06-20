@@ -1,0 +1,29 @@
+{
+  "name": "@repo/agent",
+  "version": "0.0.0",
+  "exports": {
+    ".": "./index.ts"
+  },
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint \"**/*.ts\""
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "*",
+    "@repo/typescript-config": "*",
+    "@types/express": "^5.0.6",
+    "@types/jsonwebtoken": "^9.0.10",
+    "eslint": "^8.57.0",
+    "typescript": "5.5.4",
+    "@types/bun": "latest"
+  },
+  "dependencies": {
+    "@google/genai": "^2.8.0",
+    "@repo/db": "workspace:*",
+    "@repo/types": "workspace:*",
+    "argon2": "^0.44.0",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3"
+  },
+  "private": true
+}

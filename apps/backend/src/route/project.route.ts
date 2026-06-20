@@ -4,7 +4,7 @@ import { getProject, getProjects, initProject } from "../controller/project.cont
 const projectRouter: Router = Router();
 
 projectRouter.post("/", initProject);
-projectRouter.post("/project/:projectId", getProject);
-projectRouter.post("/projects", getProjects);
+projectRouter.get("/:projectId", getProject);
+projectRouter.get("/", getProjects);
 // projectRouter.post("/project/conversation/:projectId", agentChat);
 export default projectRouter;
